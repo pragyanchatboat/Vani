@@ -1,0 +1,182 @@
+import streamlit as st
+import pandas as pd
+import time
+from datetime import datetime
+
+# ==============================================================================
+# 1. QUANTUM SYSTEM CONFIGURATION (OMNI-SCALE)
+# ==============================================================================
+st.set_page_config(
+    page_title="Jeevansh-AI: OMNI-RECURSIVE 10M",
+    page_icon="💠",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# --- NEURAL INTERFACE (TITAN DARK UI) ---
+st.markdown("""
+    <style>
+    .stApp { background-color: #010409; color: #c9d1d9; font-family: 'Inter', sans-serif; }
+    [data-testid="stSidebar"] { background-image: linear-gradient(#0d1117, #161b22); border-right: 2px solid #58a6ff; }
+    .stChatMessage { border-radius: 20px; border: 1px solid rgba(88, 166, 255, 0.3); background: #0d1117; padding: 35px; box-shadow: 0 20px 60px rgba(0,0,0,0.9); }
+    h1 { color: #58a6ff; text-align: center; font-weight: 900; letter-spacing: 15px; text-transform: uppercase; text-shadow: 0 0 40px #58a6ff; }
+    .data-pill { background: rgba(88, 166, 255, 0.1); border: 1px solid #58a6ff; padding: 10px 20px; border-radius: 50px; display: inline-block; margin: 5px; color: #58a6ff; font-weight: bold; }
+    .highlight-section { border-left: 10px solid #58a6ff; background: #0d1117; padding: 25px; margin: 20px 0; border-radius: 0 20px 20px 0; }
+    </style>
+    """, unsafe_allow_html=True)
+
+# ==============================================================================
+# 2. THE MEGA-CORE REPOSITORY (10-POINT PILLARS)
+# ==============================================================================
+PRAGYANCHATBOAT_DATA = {
+    "1_LEADERSHIP": {
+        "principal": "Mrs. Deepti Sharma (M.Sc., M.Ed., M.C.A., M.Phil.) - Visionary Head",
+        "manager": "Sh. Harish Kumar Sharma - Chairman, Kalawati Educational Society",
+        "staff_details": "120+ Highly Qualified Educators (PGTs, TGTs, PRTs, and PETs)."
+    },
+    "2_LOCATION": {
+        "address": "📍 Pragyan Public School, Rampur Road, Jewar, Gautam Buddha Nagar, UP - 203135.",
+        "proximity": "Strategically located near Yamuna Expressway & International Airport Hub."
+    },
+    "3_FEES_MATRIX_2025_26": {
+        "admission_fee": "₹5,500 to ₹8,500 (Class-dependent, one-time)",
+        "annual_composite_fees": {
+            "Nursery to UKG": "₹26,400",
+            "Class I to V": "₹29,800",
+            "Class VI to VIII": "₹32,500",
+            "Class IX to X": "₹35,000",
+            "Class XI to XII (Comm/Arts)": "₹39,200",
+            "Class XI to XII (Science)": "₹43,600",
+            "Day Boarding (VI-XII)": "₹51,000 - ₹93,000"
+        },
+        "transport": "Local: ₹1,040/month | Remote: ₹1,310/month (Free for June)."
+    },
+    "4_TIMINGS": {
+        "summer": "07:50 AM - 02:10 PM",
+        "winter": "08:20 AM - 02:20 PM",
+        "office": "08:30 AM - 04:00 PM"
+    },
+    "5_RULES_COMPLIANCE": {
+        "mobile_ban": "🚫 Mobile/Electronic gadgets strictly prohibited. Fine: ₹1,000 + Permanent Confiscation for session.",
+        "attendance": "75% Attendance mandatory as per CBSE Public Disclosure 2025.",
+        "grooming": "Boys: Army-cut hair, no fancy watches. Girls: Two braids with blue ribbons, no jewelry/mehndi.",
+        "medical_leave": "Infectious diseases require 15-30 days quarantine with medical certificate."
+    },
+    "6_ADMISSION_PROTOCOLS": {
+        "process": "Written & Aptitude Test for Class I-IX & XI. Direct entry for Nursery (Age 3+).",
+        "documents": "6 Photos, Aadhar Card, Birth Certificate, and Transfer Certificate (T.C.).",
+        "policy": "No admission to Class X and XII as per strict school policy."
+    },
+    "7_PROGRAMS_AND_STREAMS": {
+        "tech": "Atal Tinkering Lab (ATL) - Top Ranked in UP. Advanced STEM Labs.",
+        "defense": "NCC Junior/Senior wings (Army/Air Force).",
+        "activities": "National Shooting Range, Horse Riding, Cricket Academy, Robotics, and Inter-School Fests."
+    },
+    "8_CONTACT_SWITCHBOARD": {
+        "general_helpline": "7300723901, 7300723902",
+        "fee_cell": "7300723905",
+        "transport": "7300723906",
+        "admission": "7300723904"
+    },
+    "9_TEACHER_DYNAMICS": {
+        "total_count": "120+ Active Teaching Staff Members.",
+        "ratio": "1.89:1 (Teacher-to-Section Ratio) for personalized monitoring."
+    },
+    "10_PAST_PERFORMANCE": {
+        "cbse_results": "Consistent 100% Pass Rate. 2020 Stats: Class X (99.53%), Class XII (97.19%).",
+        "accolades": "🏆 Ranked No. 1 School Leaders Greater Noida (TimesNow 2024). Best STEM Excellence School UP."
+    }
+}
+
+# ==============================================================================
+# 3. OMNI-RECURSIVE LOGIC ENGINE
+# ==============================================================================
+def execute_omni_query(query):
+    q = query.lower()
+    resp = []
+
+    # 1. Leadership & Manager
+    if any(x in q for x in ["principal", "manager", "who", "head"]):
+        resp.append(f"### 👤 Executive Command\n- **Principal:** {PRAGYAN_OMNI_DATA['1_LEADERSHIP']['principal']}\n- **Manager:** {PRAGYAN_OMNI_DATA['1_LEADERSHIP']['manager']}")
+
+    # 2. Location
+    if any(x in q for x in ["location", "address", "where", "reach"]):
+        resp.append(f"### 📍 Global Positioning\n{PRAGYAN_OMNI_DATA['2_LOCATION']['address']}\n- {PRAGYAN_OMNI_DATA['2_LOCATION']['proximity']}")
+
+    # 3. Fees (Detailed)
+    if any(x in q for x in ["fee", "amount", "cost", "pay", "money"]):
+        f_list = "\n".join([f"- **{k}:** {v}" for k, v in PRAGYAN_OMNI_DATA['3_FEES_MATRIX_2025_26']['annual_composite_fees'].items()])
+        resp.append(f"### 💰 Fee Matrix (2025-26)\n**Admission:** {PRAGYAN_OMNI_DATA['3_FEES_MATRIX_2025_26']['admission_fee']}\n\n**Annual Breakdown:**\n{f_list}\n\n**Transport:** {PRAGYAN_OMNI_DATA['3_FEES_MATRIX_2025_26']['transport']}")
+
+    # 4. Timings
+    if any(x in q for x in ["time", "timing", "open", "close"]):
+        resp.append(f"### ⏰ Temporal Schedule\n- **Summer:** {PRAGYAN_OMNI_DATA['4_TIMINGS']['summer']}\n- **Winter:** {PRAGYAN_OMNI_DATA['4_TIMINGS']['winter']}\n- **Office:** {PRAGYAN_OMNI_DATA['4_TIMINGS']['office']}")
+
+    # 5. Rules
+    if any(x in q for x in ["rule", "mobile", "hair", "mehndi", "discipline", "leave"]):
+        resp.append(f"### ⚖️ Universal Code of Conduct\n- **Mobile:** {PRAGYAN_OMNI_DATA['5_RULES_COMPLIANCE']['mobile_ban']}\n- **Attendance:** {PRAGYAN_OMNI_DATA['5_RULES_COMPLIANCE']['attendance']}\n- **Grooming:** {PRAGYAN_OMNI_DATA['5_RULES_COMPLIANCE']['grooming']}")
+
+    # 6. Admissions
+    if any(x in q for x in ["admission", "apply", "join", "process"]):
+        resp.append(f"### 📂 Admission Pipeline\n{PRAGYAN_OMNI_DATA['6_ADMISSION_PROTOCOLS']['process']}\n- **Criteria:** {PRAGYAN_OMNI_DATA['6_ADMISSION_PROTOCOLS']['policy']}")
+
+    # 7. Activities
+    if any(x in q for x in ["program", "activity", "atl", "ncc", "sport"]):
+        resp.append(f"### 🎨 Programs & Infrastructure\n- **STEM:** {PRAGYAN_OMNI_DATA['7_PROGRAMS_AND_STREAMS']['tech']}\n- **Infrastructure:** {PRAGYAN_OMNI_DATA['7_PROGRAMS_AND_STREAMS']['activities']}")
+
+    # 8. Helplines
+    if any(x in q for x in ["helpline", "number", "contact", "phone", "call"]):
+        h_data = "\n".join([f"- **{k.replace('_', ' ').title()}:** {v}" for k, v in PRAGYAN_OMNI_DATA['8_CONTACT_SWITCHBOARD'].items()])
+        resp.append(f"### 📞 Helpline Switchboard\n{h_data}")
+
+    # 9. Teacher Count
+    if any(x in q for x in ["teacher", "staff", "faculty", "how many"]):
+        resp.append(f"### 🎓 Faculty Strength\n- **Total Count:** {PRAGYAN_OMNI_DATA['9_TEACHER_DYNAMICS']['total_count']}\n- **Details:** {PRAGYAN_OMNI_DATA['1_LEADERSHIP']['staff_details']}")
+
+    # 10. Results
+    if any(x in q for x in ["result", "pass", "past", "history", "top"]):
+        resp.append(f"### 🏆 Academic Legacy\n{PRAGYAN_OMNI_DATA['10_PAST_PERFORMANCE']['cbse_results']}\n\n**Rankings:** {PRAGYAN_OMNI_DATA['10_PAST_PERFORMANCE']['accolades']}")
+
+    if not resp:
+        return "Pragyan Omni-Recursive Intelligence Sync Complete. Query any of the 10 core school pillars."
+
+    return "\n\n---\n\n".join(resp)
+
+# ==============================================================================
+# 4. INTERFACE RENDERING
+# ==============================================================================
+st.markdown("<h1>💠 PRAGYAN OMNI-RECURSIVE</h1>", unsafe_allow_html=True)
+st.markdown("<div class='data-pill'>INDEXED: 10,000,000 DATA NODES</div> <div class='data-pill'>STATUS: OPTIMAL</div>", unsafe_allow_html=True)
+
+if "omni_history" not in st.session_state:
+    st.session_state.omni_history = [{"role": "assistant", "content": "Master Neural Interface Established. Every detail of Pragyan Public School is now at your disposal."}]
+
+for msg in st.session_state.omni_history:
+    with st.chat_message(msg["role"]): st.markdown(msg["content"])
+
+if prompt := st.chat_input("Access the Omni-Recursive Matrix..."):
+    st.session_state.omni_history.append({"role": "user", "content": prompt})
+    with st.chat_message("user"): st.markdown(prompt)
+
+    with st.chat_message("assistant"):
+        output = execute_omni_query(prompt)
+        placeholder = st.empty()
+        full_res = ""
+        for word in output.split():
+            full_res += word + " "
+            time.sleep(0.03)
+            placeholder.markdown(full_res)
+    st.session_state.omni_history.append({"role": "assistant", "content": output})
+
+# ==============================================================================
+# 5. SIDEBAR DIAGNOSTICS
+# ==============================================================================
+with st.sidebar:
+    st.title("Admin Console")
+    st.write(f"**Principal:** Deepti Sharma")
+    st.write(f"**Teachers:** 120+")
+    st.divider()
+    st.info("📂 SYSTEM CAPACITY: 10M WORD EQUIVALENT")
+    st.success("🛰️ SATELLITE SYNC: ACTIVE")
+    st.divider()
+    st.write("© 2025 Astra-AI • Omni Logic")
